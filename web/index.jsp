@@ -7,42 +7,40 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>Servlet Test</title>
-  </head>
-  <body>
+<head>
+    <title>JavaWeb Test</title>
+</head>
+<body>
+<ul>
+    <li>
+        <a href="ServletTest.jsp">Servlet Test</a>
+    </li>
 
-    <form action="helloServlet" method="get">
-      <input type="submit" value="servlet get">
-    </form>
-    <form action="helloServlet" method="post">
-      <input type="submit" value="servlet post">
-    </form>
+    <li>
+        <a href="cookie.jsp">Cookie Test</a>
+    </li>
 
-    <hr>
-    <form action="helloHttpServlet" method="get">
-      <input type="submit" value="httpServlet get">
-    </form>
-    <br>
-    <form action="helloHttpServlet" method="post">
-      <input type="submit" value="httpServlet post">
-    </form>
 
-    <hr>
-    <form action="helloServletConfig" method="get">
-      <input type="submit" value="ServletConfig test">
-    </form>
+    <li>
+        <a href="Session.jsp">Session Test</a>
+    </li>
 
-    <hr>
-    <form action="helloServletContext" method="get">
-      <input type="submit" value="ServletContext test">
-    </form>
+    <li>
+        <a href="${pageContext.request.contextPath}/admin/adminTest.html">FilterTest</a>
+    </li>
 
-    <hr>
-    <form action="httpTest" method="post">
-      <input type="text" name="key" value="value">
-      <input type="submit">
-    </form>
+    <li>
+        <a href="${pageContext.request.contextPath}/admin/filterChainServlet">FilterChainTest</a>
+    </li>
 
-  </body>
+
+    <li>
+        <a href="${pageContext.request.contextPath}/login.jsp">login</a>
+    </li>
+
+</ul>
+
+
+
+</body>
 </html>

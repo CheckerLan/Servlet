@@ -10,10 +10,48 @@
         <param-value>Value</param-value>
     </context-param>
 
+<!--    Listener-->
+    <listener>
+        <listener-class>com.checker.listener.ServletListenerTest</listener-class>
+    </listener>
+
+<!--    Filter-->
+
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>com.checker.filter.AdminFilter</filter-class>
+        <init-param>
+            <param-name>key</param-name>
+            <param-value>value</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <!--拦截的目录：web目录下的资源路径-->
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>FilterChainTest</filter-name>
+        <filter-class>com.checker.filter.FilterChainTest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterChainTest</filter-name>
+        <!--路径匹配规则-->
+        <url-pattern>/login.jsp</url-pattern><!--精确匹配-->
+        <url-pattern>/admin/*</url-pattern><!--目录匹配-->
+        <url-pattern>*.html</url-pattern><!--后缀名匹配-->
+
+    </filter-mapping>
+
+<!--    Session timeout-->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 
 <!--    class and mapping-->
 
-<!--    package：servlet-->
+    <!--    package：servlet-->
 
     <servlet>
         <!--别名-->
@@ -21,7 +59,6 @@
         <!--类名-->
         <servlet-class>com.checker.servlet.HelloServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <!--别名-->
         <servlet-name>HelloServlet</servlet-name>
@@ -36,7 +73,6 @@
         <!--类名-->
         <servlet-class>com.checker.servlet.HelloHttpServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <!--别名-->
         <servlet-name>HelloHttpServlet</servlet-name>
@@ -55,7 +91,6 @@
             <param-value>value</param-value>
         </init-param>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>HelloServletConfig</servlet-name>
         <url-pattern>/helloServletConfig</url-pattern>
@@ -69,8 +104,84 @@
         <servlet-name>HelloServletContext</servlet-name>
         <url-pattern>/helloServletContext</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>HelloServletRequest</servlet-name>
+        <servlet-class>com.checker.servlet.HelloServletRequest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServletRequest</servlet-name>
+        <url-pattern>/helloServletRequest</url-pattern>
+    </servlet-mapping>
 
-<!--    package：http-->
+    <servlet>
+        <servlet-name>HelloServletResponse</servlet-name>
+        <servlet-class>com.checker.servlet.HelloServletResponse</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServletResponse</servlet-name>
+        <url-pattern>/helloServletResponse</url-pattern>
+    </servlet-mapping>
+
+    <!--package:servlet.helloRequsetDispatcher-->
+    <servlet>
+        <servlet-name>HelloRequestDispatcher1</servlet-name>
+        <servlet-class>com.checker.servlet.helloRequestDispatcher.HelloRequestDispatcher1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloRequestDispatcher1</servlet-name>
+        <url-pattern>/helloRequestDispatcher1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HelloRequestDispatcher2</servlet-name>
+        <servlet-class>com.checker.servlet.helloRequestDispatcher.HelloRequestDispatcher2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloRequestDispatcher2</servlet-name>
+        <url-pattern>/helloRequestDispatcher2</url-pattern>
+    </servlet-mapping>
+
+    <!--package:servlet.helloRequsetDispatcher-->
+    <servlet>
+        <servlet-name>HelloRedirect1</servlet-name>
+        <servlet-class>com.checker.servlet.helloRedirect.HelloRedirect1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloRedirect1</servlet-name>
+        <url-pattern>/helloRedirect1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HelloRedirect2</servlet-name>
+        <servlet-class>com.checker.servlet.helloRedirect.HelloRedirect2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloRedirect2</servlet-name>
+        <url-pattern>/helloRedirect2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.checker.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FilterChainServlet</servlet-name>
+        <servlet-class>com.checker.servlet.FilterChainServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FilterChainServlet</servlet-name>
+        <url-pattern>/admin/filterChainServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+    <!--    package：http-->
     <servlet>
         <servlet-name>HttpTest</servlet-name>
         <servlet-class>com.checker.http.HttpTest</servlet-class>
@@ -79,5 +190,27 @@
         <servlet-name>HttpTest</servlet-name>
         <url-pattern>/httpTest</url-pattern>
     </servlet-mapping>
+
+    <!--    package:cookie-->
+    <servlet>
+        <servlet-name>CookieTest</servlet-name>
+        <servlet-class>com.checker.cookie.CookieTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookieTest</servlet-name>
+        <url-pattern>/cookieTest</url-pattern>
+    </servlet-mapping>
+
+    <!--    package:session-->
+    <servlet>
+        <servlet-name>SessionTest</servlet-name>
+        <servlet-class>com.checker.session.SessionTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionTest</servlet-name>
+        <url-pattern>/sessionTest</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>

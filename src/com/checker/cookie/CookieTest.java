@@ -1,4 +1,4 @@
-package com.checker.cookie_session;
+package com.checker.cookie;
 
 import com.checker.Utils.CookieUtils;
 

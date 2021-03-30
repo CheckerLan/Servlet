@@ -8,9 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+    This page is for Login;
+    <form action="${pageContext.request.contextPath}/loginServlet" method="get">
+        <label>username:
+            <input type="text" name="username">
+        </label><br>
+        password: <input type="password" name="password"><br>
+        <input type="submit">
+    </form>
 </body>
 </html>
